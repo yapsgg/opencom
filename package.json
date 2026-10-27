@@ -1,0 +1,28 @@
+{
+  "name": "opencom",
+  "version": "0.1.0",
+  "description": "Open-source AI support agent for any website. One script tag, answers from your own content.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs --widget-only && tsx watch --env-file-if-exists=.env src/server/index.ts",
+    "start": "node --env-file-if-exists=.env dist/server.js",
+    "analyze": "tsx --env-file-if-exists=.env src/server/analyze.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.5",
+    "@libsql/client": "^0.18.0",
+    "hono": "^4.13.14"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
