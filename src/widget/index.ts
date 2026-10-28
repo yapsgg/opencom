@@ -110,7 +110,7 @@ function mount() {
         <textarea id="oc-input" rows="1" placeholder="Ask a question…" maxlength="2000"></textarea>
         <button class="send" type="submit" aria-label="Send" disabled>${ICONS.send}</button>
       </form>
-      <div class="footer">Powered by <a href="https://github.com/abdibrokhim/opencom" target="_blank" rel="noopener">Opencom</a></div>
+      <div class="footer">Powered by <a href="https://github.com/yapsgg/opencom" target="_blank" rel="noopener">Opencom</a></div>
     </div>
     <button class="launcher" type="button" aria-label="Open chat" aria-expanded="false">${ICONS.chat}</button>
   `

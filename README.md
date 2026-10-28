@@ -21,7 +21,7 @@ Using Opencom? Open a PR to add your site.
 ## Quick start
 
 ```bash
-git clone https://github.com/abdibrokhim/opencom
+git clone https://github.com/yapsgg/opencom
 cd opencom
 npm install
 cp .env.example .env   # set OPENROUTER_API_KEY and OPENCOM_KNOWLEDGE_URLS

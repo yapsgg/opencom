@@ -17,5 +17,5 @@ curl -fsSL "https://github.com/docker/buildx/releases/download/v0.29.1/buildx-v0
   -o /usr/local/lib/docker/cli-plugins/docker-buildx
 chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
 
-git clone https://github.com/abdibrokhim/opencom /opt/opencom
+git clone https://github.com/yapsgg/opencom /opt/opencom
 chown -R ec2-user:ec2-user /opt/opencom
