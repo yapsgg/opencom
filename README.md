@@ -107,6 +107,7 @@ Opencom stores the message text, page URL, referrer, language, country (from `cf
 
 Opencom is one long-running Node process.
 
+- **A VM with HTTPS** (EC2, Lightsail, DigitalOcean, any VPS): `docker-compose.yml` runs Opencom behind [Caddy](https://caddyserver.com), which gets a Let's Encrypt certificate for you. Point your domain's A record at the machine, add `.env`, then run `OPENCOM_DOMAIN=chat.example.com docker compose up -d --build`. On EC2, [`deploy/ec2-setup.sh`](deploy/ec2-setup.sh) is user data for Amazon Linux 2023 that installs Docker and clones the repo. Open ports 80 and 443; a `t4g.small` is plenty.
 - **Docker** (Railway, Fly.io, Render, a VPS): `docker build -t opencom . && docker run -p 8787:8787 --env-file .env -v opencom-data:/app/data opencom`. Mount `/app/data` so chats survive restarts.
 - **No persistent disk?** Set `DATABASE_URL=libsql://…` and `DATABASE_AUTH_TOKEN` to use a free Turso database instead.
 - **Plain Node:** `npm run build && npm start`.

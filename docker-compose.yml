@@ -1,0 +1,33 @@
+# Opencom behind Caddy, which gets and renews a Let's Encrypt certificate for
+# OPENCOM_DOMAIN. Point the domain's A record at this machine first.
+#
+#   OPENCOM_DOMAIN=chat.example.com docker compose up -d --build
+services:
+  opencom:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - opencom-data:/app/data
+      - ./knowledge:/app/knowledge:ro
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      OPENCOM_DOMAIN: ${OPENCOM_DOMAIN:?set OPENCOM_DOMAIN}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - opencom
+
+volumes:
+  opencom-data:
+  caddy-data:
+  caddy-config:

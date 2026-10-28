@@ -1,0 +1,7 @@
+{$OPENCOM_DOMAIN} {
+	encode gzip
+	reverse_proxy opencom:8787 {
+		# Send each token to the browser as soon as it arrives.
+		flush_interval -1
+	}
+}
